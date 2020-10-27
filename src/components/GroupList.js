@@ -4,9 +4,13 @@ class GroupList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      groups: {},
+      groups: {
+        one: [],
+        two: [],
+      },
     };
   }
+
   async getGroups() {
     try {
       const data = await fetch('http://localhost:8080/groups', {
@@ -21,6 +25,7 @@ class GroupList extends Component {
       console.log(err);
     }
   }
+
   render() {
     return (
       <div>
@@ -30,11 +35,11 @@ class GroupList extends Component {
         </button>
         <div>
           <div className="listTitle">第一组</div>
-          {/* {this.state.groups.one.map((item) => (
+          {this.state.groups.one.map((item) => (
             <div key={item.id}>
               {item.id}. {item.name}
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
     );
