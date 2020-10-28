@@ -16,10 +16,24 @@ class GroupList extends Component {
     };
   }
 
-  async getGroups() {
+  async componentDidMount() {
     try {
       const data = await fetch('http://localhost:8080/groups', {
         method: 'GET',
+      });
+      const result = await data.json();
+      this.setState({
+        groups: result,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async getGroups() {
+    try {
+      const data = await fetch('http://localhost:8080/groups', {
+        method: 'POST',
       });
       const result = await data.json();
       console.log(result);
