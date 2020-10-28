@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
 
-const GroupNameMap = {
-  0: '第一组',
-  1: '第二组',
-  2: '第三组',
-  3: '第四组',
-  4: '第五组',
-  5: '第六组',
-};
 class GroupList extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +48,7 @@ class GroupList extends Component {
           {this.state.groups.map(function (item, index) {
             return (
               <div key={index}>
-                <div className="groupTitle">{GroupNameMap[index]}</div>
+                <div className="groupTitle">{index + 1} 组</div>
                 {item.students.map(function (item1) {
                   return (
                     <div key={item1.id}>

@@ -11,7 +11,11 @@ class App extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount = () => {
+    this.initFunction();
+  };
+
+  initFunction = async () => {
     try {
       const data = await fetch('http://localhost:8080/students', {
         method: 'GET',
@@ -23,13 +27,13 @@ class App extends Component {
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   render() {
     return (
       <div data-testid="app" className="App">
         <GroupList />
-        <StudentList students={this.state.students} />
+        <StudentList students={this.state.students} refresh={this.initFunction} />
       </div>
     );
   }
