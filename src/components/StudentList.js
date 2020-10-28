@@ -4,23 +4,42 @@ class StudentList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      students: [],
       visible: false,
       name: '',
     };
   }
 
+  componentDidMount = () => {
+    this.initFunction();
+  };
+
+  initFunction = async () => {
+    try {
+      const data = await fetch('http://localhost:8080/students', {
+        method: 'GET',
+      });
+      const result = await data.json();
+      this.setState({
+        students: result,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   handleChange = (event) => {
     this.setState({ name: event.target.value });
   };
 
-  handleKeyDown = (event) => {
+  handleKeyDown = async (event) => {
     if (event.keyCode === 13) {
-      this.addStudent();
+      await this.addStudent();
       this.setState({
         visible: false,
         name: '',
       });
-      console.log('refresh');
+      this.initFunction();
     }
   };
 
@@ -30,15 +49,14 @@ class StudentList extends Component {
 
   addStudent = async () => {
     try {
-      const data = await fetch('http://localhost:8080/student', {
+      await fetch('http://localhost:8080/student', {
         method: 'POST',
         body: this.state.name,
         headers: {
           'Content-Type': 'application/json',
         },
       });
-      const result = await data.json();
-      console.log(JSON.stringify(result));
+      this.initFunction();
     } catch (err) {
       console.log(err);
     }
@@ -49,7 +67,7 @@ class StudentList extends Component {
       <div>
         <h2>学员列表</h2>
         <div className="students">
-          {this.props.students.map((item) => (
+          {this.state.students.map((item) => (
             <div key={item.id}>
               {item.id}. {item.name}
             </div>
