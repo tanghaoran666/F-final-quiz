@@ -68,23 +68,23 @@ class StudentList extends Component {
         <h2>学员列表</h2>
         <div className="students">
           {this.state.students.map((item) => (
-            <div key={item.id}>
+            <div className="student" key={item.id}>
               {item.id}. {item.name}
             </div>
           ))}
+          <button className="student-btn" type="button" onClick={this.handleClick}>
+            +添加学员
+          </button>
+          <input
+            type="text"
+            onChange={this.handleChange}
+            value={this.state.name}
+            placeholder="请填写名字后按下回车"
+            className="student-input"
+            onKeyDown={this.handleKeyDown}
+            hidden={!this.state.visible}
+          />
         </div>
-        <button type="button" onClick={this.handleClick}>
-          +添加学员
-        </button>
-        <input
-          type="text"
-          onChange={this.handleChange}
-          value={this.state.name}
-          placeholder="请填写名字后按下回车"
-          className="input"
-          onKeyDown={this.handleKeyDown}
-          hidden={!this.state.visible}
-        />
       </div>
     );
   }

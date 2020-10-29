@@ -40,22 +40,26 @@ class GroupList extends Component {
   render() {
     return (
       <div>
-        <h2>分组列表</h2>
-        <button type="button" onClick={this.getGroups.bind(this)}>
-          分组学员
-        </button>
+        <div className="group-title">
+          <h2>分组列表</h2>
+          <button className="group-btn" type="button" onClick={this.getGroups.bind(this)}>
+            分组学员
+          </button>
+        </div>
         <div>
           {this.state.groups.map(function (item, index) {
             return (
               <div key={index}>
                 <div className="groupTitle">{index + 1} 组</div>
-                {item.students.map(function (item1) {
-                  return (
-                    <div key={item1.id}>
-                      {item1.id}. {item1.name}
-                    </div>
-                  );
-                })}
+                <div className="group-students">
+                  {item.students.map(function (item1) {
+                    return (
+                      <div className="student" key={item1.id}>
+                        {item1.id}. {item1.name}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             );
           })}
