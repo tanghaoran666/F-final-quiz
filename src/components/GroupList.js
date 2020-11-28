@@ -32,6 +32,7 @@ class GroupList extends Component {
       this.setState({
         groups: result,
       });
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -55,7 +56,7 @@ class GroupList extends Component {
                   <div className="group-teachers">
                     {item.trainers.map(function (item1) {
                       return (
-                        <div className="student" key={item1.id}>
+                        <div className="participant" key={item1.id}>
                           {item1.id}. {item1.name}
                         </div>
                       );
@@ -65,7 +66,7 @@ class GroupList extends Component {
                 <div className="group-students">
                   {item.trainees.map(function (item1) {
                     return (
-                      <div className="student" key={item1.id}>
+                      <div className="participant" key={item1.id}>
                         {item1.id}. {item1.name}
                       </div>
                     );

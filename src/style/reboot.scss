@@ -16,17 +16,17 @@ body {
 .group-btn {
   background-color: $primary-color;
   color: white;
-  height: 30px;
-  width: 100px;
+  height: 45px;
+  width: 120px;
   border: none;
 }
 
-.students {
+.participants {
   display: flex;
   flex-wrap: wrap;
 }
 
-.student {
+.participant {
   background-color: #eeeeee;
   margin: 10px;
   width: 112px;
@@ -42,10 +42,11 @@ body {
   background-color: $gray;
   padding: 10px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   .titleName {
     display: flex;
     align-items: center;
+    margin-left: 50%;
   }
 }
 
@@ -61,14 +62,14 @@ body {
   color: black;
 }
 
-.student-btn {
+.participant-btn {
   width: 112px;
   height: 40px;
   margin: 10px;
   border: 2px $gray solid;
 }
 
-.student-input {
+.participant-input {
   height: 40px;
   margin: 10px;
   padding: 0 5px;

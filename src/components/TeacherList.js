@@ -66,13 +66,13 @@ class TeacherList extends Component {
     return (
       <div>
         <h2>教师列表</h2>
-        <div className="students">
+        <div className="participants">
           {this.state.teachers.map((item) => (
-            <div className="student" key={item.id}>
+            <div className="participant" key={item.id}>
               {item.id}. {item.name}
             </div>
           ))}
-          <button className="student-btn" type="button" onClick={this.handleClick}>
+          <button className="participant-btn" type="button" onClick={this.handleClick}>
             +添加教师
           </button>
           <input
@@ -80,7 +80,7 @@ class TeacherList extends Component {
             onChange={this.handleChange}
             value={this.state.name}
             placeholder="请填写名字后按下回车"
-            className="student-input"
+            className="participant-input"
             onKeyDown={this.handleKeyDown}
             hidden={!this.state.visible}
           />
