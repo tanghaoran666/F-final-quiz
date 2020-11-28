@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Participant from './Participant';
 
 class GroupList extends Component {
   constructor(props) {
@@ -56,9 +57,7 @@ class GroupList extends Component {
                   <div className="group-teachers">
                     {item.trainers.map(function (item1) {
                       return (
-                        <div className="participant" key={item1.id}>
-                          {item1.id}. {item1.name}
-                        </div>
+                        <Participant id={item1.id} name={item1.name} role='trainers' />
                       );
                     })}
                   </div>
@@ -66,9 +65,7 @@ class GroupList extends Component {
                 <div className="group-students">
                   {item.trainees.map(function (item1) {
                     return (
-                      <div className="participant" key={item1.id}>
-                        {item1.id}. {item1.name}
-                      </div>
+                      <Participant id={item1.id} name={item1.name} role='trainees' />
                     );
                   })}
                 </div>

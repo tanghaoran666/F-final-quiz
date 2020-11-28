@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Participant from './Participant';
 
 class StudentList extends Component {
   constructor(props) {
@@ -68,9 +69,7 @@ class StudentList extends Component {
         <h2>学员列表</h2>
         <div className="participants">
           {this.state.students.map((item) => (
-            <div className="participant" key={item.id}>
-              {item.id}. {item.name}
-            </div>
+            <Participant id={item.id} name={item.name} role='trainees' />
           ))}
           <button className="participant-btn" type="button" onClick={this.handleClick}>
             +添加学员
