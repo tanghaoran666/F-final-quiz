@@ -43,6 +43,10 @@ body {
   padding: 10px;
   display: flex;
   justify-content: flex-end;
+  .titleName {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .group-students {

@@ -51,7 +51,7 @@ class GroupList extends Component {
             return (
               <div key={index}>
                 <div className="groupTitle">
-                  {item.name}
+                  <div className="titleName">{item.name}</div>
                   <div className="group-teachers">
                     {item.trainers.map(function (item1) {
                       return (

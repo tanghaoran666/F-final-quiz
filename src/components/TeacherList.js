@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class StudentList extends Component {
+class TeacherList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      students: [],
+      teachers: [],
       visible: false,
       name: '',
     };
@@ -16,12 +16,12 @@ class StudentList extends Component {
 
   initFunction = async () => {
     try {
-      const data = await fetch('http://localhost:8080/trainees?grouped=false', {
+      const data = await fetch('http://localhost:8080/trainers?grouped=false', {
         method: 'GET',
       });
       const result = await data.json();
       this.setState({
-        students: result,
+        teachers: result,
       });
     } catch (err) {
       console.log(err);
@@ -49,7 +49,7 @@ class StudentList extends Component {
 
   addStudent = async () => {
     try {
-      await fetch('http://localhost:8080/trainees', {
+      await fetch('http://localhost:8080/trainers', {
         method: 'POST',
         body: JSON.stringify({ name: this.state.name }),
         headers: {
@@ -65,15 +65,15 @@ class StudentList extends Component {
   render() {
     return (
       <div>
-        <h2>学员列表</h2>
+        <h2>教师列表</h2>
         <div className="students">
-          {this.state.students.map((item) => (
+          {this.state.teachers.map((item) => (
             <div className="student" key={item.id}>
               {item.id}. {item.name}
             </div>
           ))}
           <button className="student-btn" type="button" onClick={this.handleClick}>
-            +添加学员
+            +添加教师
           </button>
           <input
             type="text"
@@ -89,4 +89,4 @@ class StudentList extends Component {
     );
   }
 }
-export default StudentList;
+export default TeacherList;
