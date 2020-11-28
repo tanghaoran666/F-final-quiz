@@ -41,12 +41,20 @@ body {
   color: white;
   background-color: $gray;
   padding: 10px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .group-students {
   display: flex;
   border: 2px $gray solid;
   padding: 20px;
+}
+
+.group-teachers {
+  display: flex;
+  margin-left: 200px;
+  color: black;
 }
 
 .student-btn {

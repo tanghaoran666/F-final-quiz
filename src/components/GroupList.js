@@ -24,7 +24,7 @@ class GroupList extends Component {
 
   async getGroups() {
     try {
-      const data = await fetch('http://localhost:8080/groups', {
+      const data = await fetch('http://localhost:8080/groups/auto-grouping', {
         method: 'POST',
       });
       const result = await data.json();
@@ -50,9 +50,20 @@ class GroupList extends Component {
           {this.state.groups.map(function (item, index) {
             return (
               <div key={index}>
-                <div className="groupTitle">{index + 1} 组</div>
+                <div className="groupTitle">
+                  {item.name}
+                  <div className="group-teachers">
+                    {item.trainers.map(function (item1) {
+                      return (
+                        <div className="student" key={item1.id}>
+                          {item1.id}. {item1.name}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
                 <div className="group-students">
-                  {item.students.map(function (item1) {
+                  {item.trainees.map(function (item1) {
                     return (
                       <div className="student" key={item1.id}>
                         {item1.id}. {item1.name}

@@ -16,8 +16,9 @@ class StudentList extends Component {
 
   initFunction = async () => {
     try {
-      const data = await fetch('http://localhost:8080/students', {
+      const data = await fetch('http://localhost:8080/trainees', {
         method: 'GET',
+        body: { grouped: false },
       });
       const result = await data.json();
       this.setState({
