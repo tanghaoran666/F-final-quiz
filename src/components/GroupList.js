@@ -57,7 +57,12 @@ class GroupList extends Component {
                   <div className="group-teachers">
                     {item.trainers.map(function (item1) {
                       return (
-                        <Participant id={item1.id} name={item1.name} role='trainers' />
+                        <Participant
+                          id={item1.id}
+                          name={item1.name}
+                          character="trainers"
+                          key={item1.id}
+                        />
                       );
                     })}
                   </div>
@@ -65,7 +70,12 @@ class GroupList extends Component {
                 <div className="group-students">
                   {item.trainees.map(function (item1) {
                     return (
-                      <Participant id={item1.id} name={item1.name} role='trainees' />
+                      <Participant
+                        id={item1.id}
+                        name={item1.name}
+                        key={item1.id}
+                        character="trainees"
+                      />
                     );
                   })}
                 </div>

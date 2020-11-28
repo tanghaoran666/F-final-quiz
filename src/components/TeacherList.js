@@ -69,7 +69,7 @@ class TeacherList extends Component {
         <h2>教师列表</h2>
         <div className="participants">
           {this.state.teachers.map((item) => (
-              <Participant id={item.id} name={item.name} role='trainers' />
+            <Participant id={item.id} name={item.name} character="trainers" key={item.id} />
           ))}
           <button className="participant-btn" type="button" onClick={this.handleClick}>
             +添加教师
