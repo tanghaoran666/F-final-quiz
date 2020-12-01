@@ -6,6 +6,8 @@ body {
   background-color: $bg-gray;
   padding: 10px 40px;
 }
+/*TODO GTB-知识点: - 1: 具体的业务逻辑的样式不应该写在reboot文件里面， reboot文件是一个特殊的样式文件*/
+/*TODO GTB-知识点: - 2: 不同组件的样式也应该划分到各自的scss文件中去*/
 
 .group-title {
   display: flex;

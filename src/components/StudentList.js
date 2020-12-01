@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Participant from './Participant';
-
+// TODO GTB-工程实践: - 命名不统一，在GroupList.js里面使用了变量trainees。相同的概念应该保持命名的一致性。
 class StudentList extends Component {
   constructor(props) {
     super(props);
